@@ -1,5 +1,5 @@
 const Product = require("../models/Product");
-const Purchase = require("../models/purchase");
+const Purchase = require("../models/Purchase");
 const Sales = require("../models/sales");
 
 // Add Post

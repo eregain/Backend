@@ -1,4 +1,4 @@
-const Purchase = require("../models/purchase");
+const purchase = require("../models/purchase");
 const Product = require("../models/product");
 
 const purchaseStock = async (productID, purchaseStockData) => {

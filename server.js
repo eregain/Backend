@@ -21,7 +21,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000", // Local frontend for development
-      "https://your-frontend.vercel.app", // Deployed frontend on Vercel
+      "https://de-damak-inventory-management-system-v1.vercel.app", // Deployed frontend on Vercel
     ],
     methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
     credentials: true, // Allow cookies or authorization headers

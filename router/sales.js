@@ -13,5 +13,5 @@ app.get("/get/:userID/totalsaleamount", sales.getTotalSalesAmount);
 
 module.exports = app;
 
-// https://backend-prfo.onrender.com/api/sales/add POST
-// https://backend-prfo.onrender.com/api/sales/get GET
+// https://dail.onrender.com/api/sales/add POST
+// https://dail.onrender.com/api/sales/get GET

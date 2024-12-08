@@ -4,7 +4,7 @@ const ProductSchema = new mongoose.Schema(
   {
     userID: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'users',
+      ref: "users",
       required: true,
     },
     name: {
@@ -24,6 +24,5 @@ const ProductSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-
-const Product = mongoose.model("Product", ProductSchema);
+const Product = mongoose.model("product", ProductSchema);
 module.exports = Product;

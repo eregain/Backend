@@ -17,6 +17,6 @@ app.post("/update", product.updateSelectedProduct);
 // Search Product
 app.get("/search", product.searchProduct);
 
-// https://backend-prfo.onrender.com/api/product/search?searchTerm=fa
+// https://dail.onrender.com/api/product/search?searchTerm=fa
 
 module.exports = app;

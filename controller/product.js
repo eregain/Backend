@@ -1,5 +1,5 @@
-const product = require("../models/product");
-const purchase = require("../models/purchase");
+const Product = require("../models/product");
+const Purchase = require("../models/purchase");
 const Sales = require("../models/sales");
 
 // Add Post
@@ -33,16 +33,12 @@ const getAllProducts = async (req, res) => {
 
 // Delete Selected Product
 const deleteSelectedProduct = async (req, res) => {
-  const deleteProduct = await Product.deleteOne(
-    { _id: req.params.id }
-  );
-  const deletePurchaseProduct = await Purchase.deleteOne(
-    { ProductID: req.params.id }
-  );
+  const deleteProduct = await Product.deleteOne({ _id: req.params.id });
+  const deletePurchaseProduct = await Purchase.deleteOne({
+    ProductID: req.params.id,
+  });
 
-  const deleteSaleProduct = await Sales.deleteOne(
-    { ProductID: req.params.id }
-  );
+  const deleteSaleProduct = await Sales.deleteOne({ ProductID: req.params.id });
   res.json({ deleteProduct, deletePurchaseProduct, deleteSaleProduct });
 };
 

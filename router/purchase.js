@@ -12,5 +12,5 @@ app.get("/get/:userID/totalpurchaseamount", purchase.getTotalPurchaseAmount);
 
 module.exports = app;
 
-// https://backend-prfo.onrender.com/api/purchase/add POST
-// https://backend-prfo.onrender.com/api/purchase/get GET
+// https://dail.onrender.com/api/purchase/add POST
+// https://dail.onrender.com/api/purchase/get GET

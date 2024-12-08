@@ -6,13 +6,27 @@ const purchaseRoute = require("./router/purchase");
 const salesRoute = require("./router/sales");
 const cors = require("cors");
 const User = require("./models/users");
-const Product = require("./models/Product");
+const Product = require("./models/product");
 
 const app = express();
 const PORT = process.env.PORT || 4000;
+
+// Initialize the database
 main();
+
+// Middleware to parse JSON
 app.use(express.json());
-app.use(cors());
+
+app.use(
+  cors({
+    origin: [
+      "https://de-damak-inventory-store-management-system-v1-0.vercel.app", 
+      "http://localhost:3000", // Deployed frontend on Vercel
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
+    credentials: true, // Allow cookies or authorization headers
+  })
+);
 
 // Store API
 app.use("/api/store", storeRoute);
@@ -28,9 +42,9 @@ app.use("/api/sales", salesRoute);
 
 // ------------- Signin --------------
 let userAuthCheck;
+
 app.post("/api/login", async (req, res) => {
   console.log(req.body);
-  // res.send("hi");
   try {
     const user = await User.findOne({
       email: req.body.email,
@@ -54,6 +68,7 @@ app.post("/api/login", async (req, res) => {
 app.get("/api/login", (req, res) => {
   res.send(userAuthCheck);
 });
+
 // ------------------------------------
 
 // Registration API
@@ -77,12 +92,13 @@ app.post("/api/register", (req, res) => {
   console.log("request: ", req.body);
 });
 
+// Test API to fetch a product
 app.get("/testget", async (req, res) => {
   const result = await Product.findOne({ _id: "6429979b2e5434138eda1564" });
   res.json(result);
 });
 
-// Here we are listening to the server
+// Start the server
 app.listen(PORT, () => {
-  console.log("I am live again");
+  console.log(`Server is running on port ${PORT}`);
 });

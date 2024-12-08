@@ -18,7 +18,9 @@ function Inventory() {
   console.log("====================================");
 
   const fetchProductsData = useCallback(() => {
-    fetch(`http://localhost:4000/api/product/get/${authContext.user}`)
+    fetch(
+      `https://backend-56fq.onrender.com/api/product/get/${authContext.user}`
+    )
       .then((response) => response.json())
       .then((data) => {
         setAllProducts(data);
@@ -28,7 +30,7 @@ function Inventory() {
 
   // Fetching all stores data
   const fetchSalesData = useCallback(() => {
-    fetch(`http://localhost:4000/api/store/get/${authContext.user}`)
+    fetch(`https://backend-56fq.onrender.com/api/store/get/${authContext.user}`)
       .then((response) => response.json())
       .then((data) => {
         setAllStores(data);
@@ -42,7 +44,9 @@ function Inventory() {
 
   // Fetching Data of Search Products
   const fetchSearchData = () => {
-    fetch(`http://localhost:4000/api/product/search?searchTerm=${searchTerm}`)
+    fetch(
+      `https://backend-56fq.onrender.com/api/product/search?searchTerm=${searchTerm}`
+    )
       .then((response) => response.json())
       .then((data) => {
         setAllProducts(data);
@@ -65,8 +69,8 @@ function Inventory() {
   // Delete item
   const deleteItem = (id) => {
     console.log("Product ID: ", id);
-    console.log(`http://localhost:4000/api/product/delete/${id}`);
-    fetch(`http://localhost:4000/api/product/delete/${id}`)
+    console.log(`https://backend-56fq.onrender.com/api/product/delete/${id}`);
+    fetch(`https://backend-56fq.onrender.com/api/product/delete/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setUpdatePage(!updatePage);
